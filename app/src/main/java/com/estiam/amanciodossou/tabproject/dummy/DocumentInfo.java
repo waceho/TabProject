@@ -11,25 +11,25 @@ import java.util.List;
  */
 
 public final class DocumentInfo implements Parcelable {
-    private final String mCourseId;
+    private final String mdocumentId;
     private final String mTitle;
     private final List<ModuleInfo> mModules;
 
-    public DocumentInfo(String courseId, String title, List<ModuleInfo> modules) {
-        mCourseId = courseId;
+    public DocumentInfo(String documentId, String title, List<ModuleInfo> modules) {
+        mdocumentId = documentId;
         mTitle = title;
         mModules = modules;
     }
 
     private DocumentInfo(Parcel source) {
-        mCourseId = source.readString();
+        mdocumentId = source.readString();
         mTitle = source.readString();
         mModules = new ArrayList<>();
         source.readTypedList(mModules, ModuleInfo.CREATOR);
     }
 
-    public String getCourseId() {
-        return mCourseId;
+    public String getdocumentId() {
+        return mdocumentId;
     }
 
     public String getTitle() {
@@ -74,13 +74,13 @@ public final class DocumentInfo implements Parcelable {
 
         DocumentInfo that = (DocumentInfo) o;
 
-        return mCourseId.equals(that.mCourseId);
+        return mdocumentId.equals(that.mdocumentId);
 
     }
 
     @Override
     public int hashCode() {
-        return mCourseId.hashCode();
+        return mdocumentId.hashCode();
     }
     @Override
     public int describeContents() {
@@ -89,7 +89,7 @@ public final class DocumentInfo implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(mCourseId);
+        dest.writeString(mdocumentId);
         dest.writeString(mTitle);
         dest.writeTypedList(mModules);
     }

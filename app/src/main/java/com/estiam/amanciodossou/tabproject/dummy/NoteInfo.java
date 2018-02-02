@@ -8,26 +8,26 @@ import android.os.Parcelable;
  */
 
 public final class NoteInfo implements Parcelable {
-    private DocumentInfo mCourse;
+    private DocumentInfo mdocument;
     private String mTitle;
     private String mText;
     private int mId;
 
-    public NoteInfo(int id, DocumentInfo course, String title, String text) {
+    public NoteInfo(int id, DocumentInfo document, String title, String text) {
         mId = id;
-        mCourse = course;
+        mdocument = document;
         mTitle = title;
         mText = text;
     }
 
-    public NoteInfo(DocumentInfo course, String title, String text) {
-        mCourse = course;
+    public NoteInfo(DocumentInfo document, String title, String text) {
+        mdocument = document;
         mTitle = title;
         mText = text;
     }
 
     private NoteInfo(Parcel source) {
-        mCourse = source.readParcelable(DocumentInfo.class.getClassLoader());
+        mdocument = source.readParcelable(DocumentInfo.class.getClassLoader());
         mTitle = source.readString();
         mText = source.readString();
     }
@@ -36,12 +36,12 @@ public final class NoteInfo implements Parcelable {
         return mId;
     }
 
-    public DocumentInfo getCourse() {
-        return mCourse;
+    public DocumentInfo getdocument() {
+        return mdocument;
     }
 
-    public void setCourse(DocumentInfo course) {
-        mCourse = course;
+    public void setdocument(DocumentInfo document) {
+        mdocument = document;
     }
 
     public String getTitle() {
@@ -61,7 +61,7 @@ public final class NoteInfo implements Parcelable {
     }
 
     private String getCompareKey() {
-        return mCourse.getCourseId() + "|" + mTitle + "|" + mText;
+        return mdocument.getdocumentId() + "|" + mTitle + "|" + mText;
     }
 
     @Override
@@ -91,7 +91,7 @@ public final class NoteInfo implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(mCourse, 0);
+        dest.writeParcelable(mdocument, 0);
         dest.writeString(mTitle);
         dest.writeString(mText);
     }

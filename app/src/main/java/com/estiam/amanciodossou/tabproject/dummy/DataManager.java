@@ -3,8 +3,7 @@ package com.estiam.amanciodossou.tabproject.dummy;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.estiam.amanciodossou.tabproject.dummy.NoteKeeperDatabaseContract.DocumentInfoEntry;
-import com.estiam.amanciodossou.tabproject.dummy.NoteKeeperDatabaseContract.NoteInfoEntry;
+import com.estiam.amanciodossou.tabproject.dummy.DatabaseContract.DocumentInfoEntry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,71 +15,42 @@ import java.util.List;
 public class DataManager {
     private static DataManager ourInstance = null;
 
-    private List<DocumentInfo> mCourses = new ArrayList<>();
+    private List<DocumentInfo> mdocuments = new ArrayList<>();
     private List<NoteInfo> mNotes = new ArrayList<>();
 
     public static DataManager getInstance() {
         if(ourInstance == null) {
             ourInstance = new DataManager();
-//            ourInstance.initializeCourses();
+//            ourInstance.initializedocuments();
 //            ourInstance.initializeExampleNotes();
         }
         return ourInstance;
     }
 
-    public static void loadFromDatabase(NoteKeeperOpenHelper dbHelper) {
+    public static void loadFromDatabase(OpenHelper dbHelper) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        final String[] courseColumns = {
-                DocumentInfoEntry.COLUMN_COURSE_ID,
-                DocumentInfoEntry.COLUMN_COURSE_TITLE};
-        final Cursor courseCursor = db.query(DocumentInfoEntry.TABLE_NAME, courseColumns,
-                null, null, null, null, DocumentInfoEntry.COLUMN_COURSE_TITLE + " DESC");
-        loadCoursesFromDatabase(courseCursor);
+        final String[] documentColumns = {
+                DocumentInfoEntry.COLUMN_DOCUMENT_ID,
+                DocumentInfoEntry.COLUMN_DOCUMENT_TITLE};
+        final Cursor documentCursor = db.query(DocumentInfoEntry.TABLE_NAME, documentColumns,
+                null, null, null, null, DocumentInfoEntry.COLUMN_DOCUMENT_TITLE + " DESC");
+        loaddocumentsFromDatabase(documentCursor);
 
-        final String[] noteColumns = {
-                NoteInfoEntry.COLUMN_NOTE_TITLE,
-                NoteInfoEntry.COLUMN_NOTE_TEXT,
-                NoteInfoEntry.COLUMN_COURSE_ID,
-                NoteInfoEntry._ID};
-        String noteOrderBy = NoteInfoEntry.COLUMN_COURSE_ID + "," + NoteInfoEntry.COLUMN_NOTE_TITLE;
-        final Cursor noteCursor = db.query(NoteInfoEntry.TABLE_NAME, noteColumns,
-                null, null, null, null, noteOrderBy);
-        loadNotesFromDatabase(noteCursor);
     }
 
-    private static void loadNotesFromDatabase(Cursor cursor) {
-        int noteTitlePos = cursor.getColumnIndex(NoteInfoEntry.COLUMN_NOTE_TITLE);
-        int noteTextPos = cursor.getColumnIndex(NoteInfoEntry.COLUMN_NOTE_TEXT);
-        int courseIdPos = cursor.getColumnIndex(NoteInfoEntry.COLUMN_COURSE_ID);
-        int idPos = cursor.getColumnIndex(NoteInfoEntry._ID);
+
+    private static void loaddocumentsFromDatabase(Cursor cursor) {
+        int documentIdPos = cursor.getColumnIndex(DocumentInfoEntry.COLUMN_DOCUMENT_ID);
+        int documentTitlePos = cursor.getColumnIndex(DocumentInfoEntry.COLUMN_DOCUMENT_TITLE);
 
         DataManager dm = getInstance();
-        dm.mNotes.clear();
+        dm.mdocuments.clear();
         while(cursor.moveToNext()) {
-            String noteTitle = cursor.getString(noteTitlePos);
-            String noteText = cursor.getString(noteTextPos);
-            String courseId = cursor.getString(courseIdPos);
-            int id = cursor.getInt(idPos);
+            String documentId = cursor.getString(documentIdPos);
+            String documentTitle = cursor.getString(documentTitlePos);
+            DocumentInfo document = new DocumentInfo(documentId, documentTitle, null);
 
-            DocumentInfo noteCourse = dm.getCourse(courseId);
-            NoteInfo note = new NoteInfo(id, noteCourse, noteTitle, noteText);
-            dm.mNotes.add(note);
-        }
-        cursor.close();
-    }
-
-    private static void loadCoursesFromDatabase(Cursor cursor) {
-        int courseIdPos = cursor.getColumnIndex(DocumentInfoEntry.COLUMN_COURSE_ID);
-        int courseTitlePos = cursor.getColumnIndex(DocumentInfoEntry.COLUMN_COURSE_TITLE);
-
-        DataManager dm = getInstance();
-        dm.mCourses.clear();
-        while(cursor.moveToNext()) {
-            String courseId = cursor.getString(courseIdPos);
-            String courseTitle = cursor.getString(courseTitlePos);
-            DocumentInfo course = new DocumentInfo(courseId, courseTitle, null);
-
-            dm.mCourses.add(course);
+            dm.mdocuments.add(document);
         }
         cursor.close();
     }
@@ -116,31 +86,31 @@ public class DataManager {
         mNotes.remove(index);
     }
 
-    public List<DocumentInfo> getCourses() {
-        return mCourses;
+    public List<DocumentInfo> getdocuments() {
+        return mdocuments;
     }
 
-    public DocumentInfo getCourse(String id) {
-        for (DocumentInfo course : mCourses) {
-            if (id.equals(course.getCourseId()))
-                return course;
+    public DocumentInfo getdocument(String id) {
+        for (DocumentInfo document : mdocuments) {
+            if (id.equals(document.getdocumentId()))
+                return document;
         }
         return null;
     }
 
-    public List<NoteInfo> getNotes(DocumentInfo course) {
+    public List<NoteInfo> getNotes(DocumentInfo document) {
         ArrayList<NoteInfo> notes = new ArrayList<>();
         for(NoteInfo note:mNotes) {
-            if(course.equals(note.getCourse()))
+            if(document.equals(note.getdocument()))
                 notes.add(note);
         }
         return notes;
     }
 
-    public int getNoteCount(DocumentInfo course) {
+    public int getNoteCount(DocumentInfo document) {
         int count = 0;
         for(NoteInfo note:mNotes) {
-            if(course.equals(note.getCourse()))
+            if(document.equals(note.getdocument()))
                 count++;
         }
         return count;
@@ -151,58 +121,58 @@ public class DataManager {
 
     //region Initialization code
 
-    private void initializeCourses() {
-        mCourses.add(initializeCourse1());
-        mCourses.add(initializeCourse2());
-        mCourses.add(initializeCourse3());
-        mCourses.add(initializeCourse4());
+    private void initializedocuments() {
+        mdocuments.add(initializedocument1());
+        mdocuments.add(initializedocument2());
+        mdocuments.add(initializedocument3());
+        mdocuments.add(initializedocument4());
     }
 
     public void initializeExampleNotes() {
         final DataManager dm = getInstance();
 
-        DocumentInfo course = dm.getCourse("android_intents");
-        course.getModule("android_intents_m01").setComplete(true);
-        course.getModule("android_intents_m01").setComplete(true);
-        course.getModule("android_intents_m02").setComplete(true);
-        course.getModule("android_intents_m03").setComplete(true);
-        mNotes.add(new NoteInfo(course, "Dynamic intent resolution",
+        DocumentInfo document = dm.getdocument("android_intents");
+        document.getModule("android_intents_m01").setComplete(true);
+        document.getModule("android_intents_m01").setComplete(true);
+        document.getModule("android_intents_m02").setComplete(true);
+        document.getModule("android_intents_m03").setComplete(true);
+        mNotes.add(new NoteInfo(document, "Dynamic intent resolution",
                 "Wow, intents allow components to be resolved at runtime"));
-        mNotes.add(new NoteInfo(course, "Delegating intents",
+        mNotes.add(new NoteInfo(document, "Delegating intents",
                 "PendingIntents are powerful; they delegate much more than just a component invocation"));
 
-        course = dm.getCourse("android_async");
-        course.getModule("android_async_m01").setComplete(true);
-        course.getModule("android_async_m02").setComplete(true);
-        mNotes.add(new NoteInfo(course, "Service default threads",
+        document = dm.getdocument("android_async");
+        document.getModule("android_async_m01").setComplete(true);
+        document.getModule("android_async_m02").setComplete(true);
+        mNotes.add(new NoteInfo(document, "Service default threads",
                 "Did you know that by default an Android Service will tie up the UI thread?"));
-        mNotes.add(new NoteInfo(course, "Long running operations",
+        mNotes.add(new NoteInfo(document, "Long running operations",
                 "Foreground Services can be tied to a notification icon"));
 
-        course = dm.getCourse("java_lang");
-        course.getModule("java_lang_m01").setComplete(true);
-        course.getModule("java_lang_m02").setComplete(true);
-        course.getModule("java_lang_m03").setComplete(true);
-        course.getModule("java_lang_m04").setComplete(true);
-        course.getModule("java_lang_m05").setComplete(true);
-        course.getModule("java_lang_m06").setComplete(true);
-        course.getModule("java_lang_m07").setComplete(true);
-        mNotes.add(new NoteInfo(course, "Parameters",
+        document = dm.getdocument("java_lang");
+        document.getModule("java_lang_m01").setComplete(true);
+        document.getModule("java_lang_m02").setComplete(true);
+        document.getModule("java_lang_m03").setComplete(true);
+        document.getModule("java_lang_m04").setComplete(true);
+        document.getModule("java_lang_m05").setComplete(true);
+        document.getModule("java_lang_m06").setComplete(true);
+        document.getModule("java_lang_m07").setComplete(true);
+        mNotes.add(new NoteInfo(document, "Parameters",
                 "Leverage variable-length parameter lists"));
-        mNotes.add(new NoteInfo(course, "Anonymous classes",
+        mNotes.add(new NoteInfo(document, "Anonymous classes",
                 "Anonymous classes simplify implementing one-use types"));
 
-        course = dm.getCourse("java_core");
-        course.getModule("java_core_m01").setComplete(true);
-        course.getModule("java_core_m02").setComplete(true);
-        course.getModule("java_core_m03").setComplete(true);
-        mNotes.add(new NoteInfo(course, "Compiler options",
+        document = dm.getdocument("java_core");
+        document.getModule("java_core_m01").setComplete(true);
+        document.getModule("java_core_m02").setComplete(true);
+        document.getModule("java_core_m03").setComplete(true);
+        mNotes.add(new NoteInfo(document, "Compiler options",
                 "The -jar option isn't compatible with with the -cp option"));
-        mNotes.add(new NoteInfo(course, "Serialization",
+        mNotes.add(new NoteInfo(document, "Serialization",
                 "Remember to include SerialVersionUID to assure version compatibility"));
     }
 
-    private DocumentInfo initializeCourse1() {
+    private DocumentInfo initializedocument1() {
         List<ModuleInfo> modules = new ArrayList<>();
         modules.add(new ModuleInfo("android_intents_m01", "Android Late Binding and Intents"));
         modules.add(new ModuleInfo("android_intents_m02", "Component activation with intents"));
@@ -213,7 +183,7 @@ public class DataManager {
         return new DocumentInfo("android_intents", "Android Programming with Intents", modules);
     }
 
-    private DocumentInfo initializeCourse2() {
+    private DocumentInfo initializedocument2() {
         List<ModuleInfo> modules = new ArrayList<>();
         modules.add(new ModuleInfo("android_async_m01", "Challenges to a responsive user experience"));
         modules.add(new ModuleInfo("android_async_m02", "Implementing long-running operations as a service"));
@@ -223,7 +193,7 @@ public class DataManager {
         return new DocumentInfo("android_async", "Android Async Programming and Services", modules);
     }
 
-    private DocumentInfo initializeCourse3() {
+    private DocumentInfo initializedocument3() {
         List<ModuleInfo> modules = new ArrayList<>();
         modules.add(new ModuleInfo("java_lang_m01", "Introduction and Setting up Your Environment"));
         modules.add(new ModuleInfo("java_lang_m02", "Creating a Simple App"));
@@ -242,7 +212,7 @@ public class DataManager {
         return new DocumentInfo("java_lang", "Java Fundamentals: The Java Language", modules);
     }
 
-    private DocumentInfo initializeCourse4() {
+    private DocumentInfo initializedocument4() {
         List<ModuleInfo> modules = new ArrayList<>();
         modules.add(new ModuleInfo("java_core_m01", "Introduction"));
         modules.add(new ModuleInfo("java_core_m02", "Input and Output with Streams and Files"));
@@ -258,10 +228,10 @@ public class DataManager {
         return new DocumentInfo("java_core", "Java Fundamentals: The Core Platform", modules);
     }
 
-    public int createNewNote(DocumentInfo course, String noteTitle, String noteText) {
+    public int createNewNote(DocumentInfo document, String noteTitle, String noteText) {
         int index = createNewNote();
         NoteInfo note = getNotes().get(index);
-        note.setCourse(course);
+        note.setdocument(document);
         note.setTitle(noteTitle);
         note.setText(noteText);
 

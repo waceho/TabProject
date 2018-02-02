@@ -22,41 +22,42 @@ import java.util.List;
 public class DocumentRecyclerAdapter extends RecyclerView.Adapter<DocumentRecyclerAdapter.ViewHolder> {
 
     private final Context mContext;
-    private final List<DocumentInfo> mCourses;
+    private final List<DocumentInfo> mDocuments;
     private final LayoutInflater mLayoutInflater;
 
-    public DocumentRecyclerAdapter(Context context, List<DocumentInfo> courses) {
+    public DocumentRecyclerAdapter(Context context, List<DocumentInfo> documents) {
         mContext = context;
-        mCourses = courses;
+        mDocuments = documents;
         mLayoutInflater = LayoutInflater.from(mContext);
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mLayoutInflater.inflate(R.layout.item_course_list, parent, false);
+        View itemView = mLayoutInflater.inflate(R.layout.item_document_list, parent, false);
         return new ViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        DocumentInfo course = mCourses.get(position);
-        holder.mTextCourse.setText(course.getTitle());
+        DocumentInfo document = mDocuments.get(position);
+        holder.mTextdocument.setText(document.getTitle());
         holder.mCurrentPosition = position;
     }
 
     @Override
     public int getItemCount() {
-        return mCourses.size();
+        return mDocuments.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public final TextView mTextCourse;
+        public final TextView mTextdocument;
         public int mCurrentPosition;
 
         public ViewHolder(final View itemView) {
             super(itemView);
-            mTextCourse = (TextView) itemView.findViewById(R.id.content);
+            mTextdocument = (TextView) itemView.findViewById(R.id.content);
+
 
             final DocumentInfo item = (DocumentInfo) itemView.getTag();
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -65,10 +66,10 @@ public class DocumentRecyclerAdapter extends RecyclerView.Adapter<DocumentRecycl
 
                     Context context = itemView.getContext();
                     Intent intent = new Intent(context, ItemDetailActivity.class);
-                   // intent.putExtra(ItemDetailFragment.ARG_ITEM_ID, item.getCourseId());
+                    intent.putExtra(ItemDetailFragment.ARG_ITEM_ID, mDocuments.get(mCurrentPosition).getTitle());
                     context.startActivity(intent);
 
-                    Snackbar.make(v, mCourses.get(mCurrentPosition).getTitle(),
+                    Snackbar.make(v, mDocuments.get(mCurrentPosition).getTitle(),
                             Snackbar.LENGTH_LONG).show();
 
 
@@ -78,10 +79,6 @@ public class DocumentRecyclerAdapter extends RecyclerView.Adapter<DocumentRecycl
 
 
 
-    }
-
-    public interface MyClickListener {
-        public void onItemClick(int position, View v);
     }
 }
 
