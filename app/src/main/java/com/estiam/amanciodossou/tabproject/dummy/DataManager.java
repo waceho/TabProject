@@ -54,14 +54,6 @@ public class DataManager {
         cursor.close();
     }
 
-    public String getCurrentUserName() {
-        return "Jim Wilson";
-    }
-
-    public String getCurrentUserEmail() {
-        return "jimw@jwhh.com";
-    }
-
     public List<NoteInfo> getNotes() {
         return mNotes;
     }
@@ -81,10 +73,6 @@ public class DataManager {
         return -1;
     }
 
-    public void removeNote(int index) {
-        mNotes.remove(index);
-    }
-
     public List<DocumentInfo> getdocuments() {
         return mdocuments;
     }
@@ -97,36 +85,7 @@ public class DataManager {
         return null;
     }
 
-    public List<NoteInfo> getNotes(DocumentInfo document) {
-        ArrayList<NoteInfo> notes = new ArrayList<>();
-        for(NoteInfo note:mNotes) {
-            if(document.equals(note.getdocument()))
-                notes.add(note);
-        }
-        return notes;
-    }
-
-    public int getNoteCount(DocumentInfo document) {
-        int count = 0;
-        for(NoteInfo note:mNotes) {
-            if(document.equals(note.getdocument()))
-                count++;
-        }
-        return count;
-    }
-
     private DataManager() {
     }
-
-    public int createNewNote(DocumentInfo document, String noteTitle, String noteText) {
-        int index = createNewNote();
-        NoteInfo note = getNotes().get(index);
-        note.setdocument(document);
-        note.setTitle(noteTitle);
-        note.setText(noteText);
-
-        return index;
-    }
-    //endregion
 
 }
