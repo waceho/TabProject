@@ -19,9 +19,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemDetailActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemListActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DatabaseDataWorker.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DatabaseDataWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_item_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_item_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DocumentRecyclerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DocumentRecyclerAdapter.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,21 +45,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="activity_item_list.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_item_list.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="34" column="43" lean-forward="false" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-              <folding>
-                <element signature="e#1144#1184#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="activity_item_detail.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_item_detail.xml">
           <provider editor-type-id="android-designer2">
@@ -69,8 +54,7 @@
             <state relative-caret-position="215">
               <caret line="26" column="47" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="47" />
               <folding>
-                <element signature="e#1279#1319#0" expanded="false" />
-                <element signature="e#1909#1928#0" expanded="false" />
+                <element signature="e#2199#2239#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,11 +63,10 @@
       <file leaf-file-name="ItemListActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1103">
-              <caret line="352" column="52" lean-forward="false" selection-start-line="352" selection-start-column="8" selection-end-line="352" selection-end-column="52" />
+            <state relative-caret-position="230">
+              <caret line="83" column="51" lean-forward="false" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#12744#12799#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -92,12 +75,22 @@
       <file leaf-file-name="ItemDetailActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="63" column="50" lean-forward="false" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
+            <state relative-caret-position="-95">
+              <caret line="32" column="24" lean-forward="false" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
               <folding>
                 <element signature="e#2233#2526#0" expanded="true" />
                 <element signature="e#2525#2526#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DocumentRecyclerAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DocumentRecyclerAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="69" column="43" lean-forward="true" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseDataWorker.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DatabaseDataWorker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DatabaseDataWorker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="65" column="12" lean-forward="false" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+            <state relative-caret-position="328">
+              <caret line="57" column="51" lean-forward="false" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -1965,7 +1958,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/NoteRecyclerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_save_black_24dp.xml" />
         <option value="$PROJECT_DIR$/app/build/generated/source/r/debug/com/estiam/amanciodossou/tabproject/R.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DocumentRecyclerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/NoteInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-w900dp/item_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_course_list.xml" />
@@ -1985,12 +1977,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DataManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/DrawerView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_item_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemListActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/OpenHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemDetailFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_item_detail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemDetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DatabaseDataWorker.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemDetailActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DocumentRecyclerAdapter.java" />
       </list>
     </option>
   </component>
@@ -2275,7 +2268,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517802154791" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517827334968" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2321,7 +2314,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517802154792" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517827334968" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2502,7 +2495,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517802154793" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517827334970" />
       </method>
     </configuration>
     <list size="1">
@@ -2547,7 +2540,7 @@
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2562,7 +2555,7 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="83" y="23" width="1080" height="533" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
@@ -2682,9 +2675,9 @@
           <folding>
             <element signature="e#3375#3693#0" expanded="false" />
             <element signature="e#3692#3693#0" expanded="false" />
-            <element signature="e#6130#7544#0" expanded="false" />
-            <element signature="e#7543#7544#0" expanded="false" />
-            <element signature="e#12744#12799#0" expanded="false" />
+            <element signature="e#6130#7512#0" expanded="false" />
+            <element signature="e#7511#7512#0" expanded="false" />
+            <element signature="e#12712#12767#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2884,14 +2877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DocumentRecyclerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="35" column="56" lean-forward="false" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_list_content.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -2940,9 +2925,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="34" column="43" lean-forward="false" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-          <folding>
-            <element signature="e#1144#1184#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -2999,42 +2982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_item_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="26" column="47" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="47" />
-          <folding>
-            <element signature="e#1279#1319#0" expanded="false" />
-            <element signature="e#1909#1928#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="63" column="50" lean-forward="false" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
-          <folding>
-            <element signature="e#2233#2526#0" expanded="true" />
-            <element signature="e#2525#2526#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1103">
-          <caret line="352" column="52" lean-forward="false" selection-start-line="352" selection-start-column="8" selection-end-line="352" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#12744#12799#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DataManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -3045,10 +2992,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_item_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="26" column="47" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="47" />
+          <folding>
+            <element signature="e#2199#2239#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DatabaseDataWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="65" column="12" lean-forward="false" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+        <state relative-caret-position="328">
+          <caret line="57" column="51" lean-forward="false" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="32" column="24" lean-forward="false" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+          <folding>
+            <element signature="e#2233#2526#0" expanded="true" />
+            <element signature="e#2525#2526#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/ItemListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="83" column="51" lean-forward="false" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/estiam/amanciodossou/tabproject/dummy/DocumentRecyclerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="69" column="43" lean-forward="true" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
           <folding />
         </state>
       </provider>

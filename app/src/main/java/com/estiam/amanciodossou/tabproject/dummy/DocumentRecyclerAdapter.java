@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.estiam.amanciodossou.tabproject.Current;
 import com.estiam.amanciodossou.tabproject.ItemDetailActivity;
 import com.estiam.amanciodossou.tabproject.ItemDetailFragment;
 import com.estiam.amanciodossou.tabproject.R;
@@ -24,11 +25,13 @@ public class DocumentRecyclerAdapter extends RecyclerView.Adapter<DocumentRecycl
     private final Context mContext;
     private final List<DocumentInfo> mDocuments;
     private final LayoutInflater mLayoutInflater;
+    private Current current;
 
     public DocumentRecyclerAdapter(Context context, List<DocumentInfo> documents) {
         mContext = context;
         mDocuments = documents;
         mLayoutInflater = LayoutInflater.from(mContext);
+        current = (Current)mContext.getApplicationContext();
     }
 
     @Override
@@ -65,6 +68,8 @@ public class DocumentRecyclerAdapter extends RecyclerView.Adapter<DocumentRecycl
                 public void onClick(View v) {
 
                     Context context = itemView.getContext();
+                    current.setId(mDocuments.get(mCurrentPosition).getdocumentId());
+                    current.setTitle(mDocuments.get(mCurrentPosition).getTitle());
                     Intent intent = new Intent(context, ItemDetailActivity.class);
                     intent.putExtra(ItemDetailFragment.ARG_ITEM_ID, mDocuments.get(mCurrentPosition).getTitle());
                     context.startActivity(intent);
