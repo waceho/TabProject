@@ -25,7 +25,7 @@ public class OpenHelper extends SQLiteOpenHelper {
 
         db.execSQL(DocumentInfoEntry.SQL_CREATE_INDEX1);
 
-        DatabaseDataWorker worker = new DatabaseDataWorker(db);
+       // DatabaseDataWorker worker = new DatabaseDataWorker(db,);
        // worker.insertdocuments();
        // worker.insertSampleNotes();
     }

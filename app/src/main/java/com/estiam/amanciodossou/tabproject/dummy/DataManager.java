@@ -16,6 +16,7 @@ public class DataManager {
     private static DataManager ourInstance = null;
 
     private List<DocumentInfo> mdocuments = new ArrayList<>();
+    private List<DrawedInfo> mimages = new ArrayList<>();
     private List<NoteInfo> mNotes = new ArrayList<>();
 
     public static DataManager getInstance() {
@@ -38,6 +39,17 @@ public class DataManager {
 
     }
 
+    public static void loadImageFromDatabase(OpenHelper dbHelper) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        final String[] documentColumns = {
+                DocumentInfoEntry.getKeyName(),
+                DocumentInfoEntry.getKeyImage()};
+        final Cursor documentCursor = db.query(DocumentInfoEntry.getDbImageTable(), documentColumns,
+                null, null, null, null, DocumentInfoEntry.getKeyImage() + " DESC");
+        loadimagesFromDatabase(documentCursor);
+
+    }
+
     private static void loaddocumentsFromDatabase(Cursor cursor) {
         int documentIdPos = cursor.getColumnIndex(DocumentInfoEntry.COLUMN_DOCUMENT_ID);
         int documentTitlePos = cursor.getColumnIndex(DocumentInfoEntry.COLUMN_DOCUMENT_TITLE);
@@ -50,6 +62,22 @@ public class DataManager {
             DocumentInfo document = new DocumentInfo(documentId, documentTitle, null);
 
             dm.mdocuments.add(document);
+        }
+        cursor.close();
+    }
+
+    private static void loadimagesFromDatabase(Cursor cursor) {
+        int documentIdPos = cursor.getColumnIndex(DocumentInfoEntry.getKeyName());
+        int documentTitlePos = cursor.getColumnIndex(DocumentInfoEntry.getKeyImage());
+
+        DataManager dm = getInstance();
+        dm.mdocuments.clear();
+        while(cursor.moveToNext()) {
+            String documentId = cursor.getString(documentIdPos);
+            byte[] image = cursor.getBlob(documentTitlePos);
+            DrawedInfo imageInfo = new DrawedInfo(documentId, image, null);
+
+            dm.mimages.add(imageInfo);
         }
         cursor.close();
     }
@@ -77,9 +105,10 @@ public class DataManager {
         return mdocuments;
     }
 
-    public DocumentInfo getdocument(String id) {
-        for (DocumentInfo document : mdocuments) {
-            if (id.equals(document.getdocumentId()))
+    public DrawedInfo getimage(String id) {
+        for (DrawedInfo document : mimages) {
+            if (document != null)
+            if (id.equals(document.getimageId()))
                 return document;
         }
         return null;
