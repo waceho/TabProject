@@ -63,6 +63,12 @@ public class DatabaseDataWorker {
         try {
             database = mDbOpenHelper.getWritableDatabase();
             database.insert(DatabaseContract.DocumentInfoEntry.getDbImageTable(), null, values);
+            
+            Toast.makeText(mContext, "insérer", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(mContext, String.valueOf(current.getTitle()), Toast.LENGTH_SHORT).show();
+
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
